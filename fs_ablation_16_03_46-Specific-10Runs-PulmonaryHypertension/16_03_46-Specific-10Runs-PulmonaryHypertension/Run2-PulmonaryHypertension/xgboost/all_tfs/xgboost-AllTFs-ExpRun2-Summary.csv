@@ -1,0 +1,2 @@
+Algorithm,TransferFunction,BestFitness_mean,BestFitness_std,Accuracy_mean,Accuracy_std,Error_mean,Error_std,Sensitivity_mean,Sensitivity_std,Specificity_mean,Specificity_std,Precision_mean,Precision_std,MCC_mean,MCC_std,F1_mean,F1_std,NumFeatures_mean,NumFeatures_std,Time_mean,Time_std
+bLRRIME-XGBOOST,v1,0.034741,0.045732,0.965238,0.048305,0.034762,0.048305,0.975000,0.079057,0.954762,0.073128,0.963889,0.058267,0.935648,0.088008,0.966499,0.048915,3.400000,1.264911,15.354810,1.092636

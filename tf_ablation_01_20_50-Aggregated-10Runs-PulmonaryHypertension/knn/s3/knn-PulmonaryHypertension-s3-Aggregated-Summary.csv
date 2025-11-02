@@ -1,0 +1,2 @@
+Algorithm,BestFitness_mean,BestFitness_std,Accuracy_mean,Accuracy_std,Error_mean,Error_std,Sensitivity_mean,Sensitivity_std,Specificity_mean,Specificity_std,Precision_mean,Precision_std,MCC_mean,MCC_std,F1_mean,F1_std,NumFeatures_mean,NumFeatures_std,Time_mean,Time_std
+bLRRIME-KNN,0.149015,0.086406,0.866667,0.091394,0.133333,0.091394,0.897143,0.099542,0.834286,0.134641,0.859417,0.106254,0.740827,0.180484,0.873831,0.085776,44.250000,5.337830,1.912018,0.038719

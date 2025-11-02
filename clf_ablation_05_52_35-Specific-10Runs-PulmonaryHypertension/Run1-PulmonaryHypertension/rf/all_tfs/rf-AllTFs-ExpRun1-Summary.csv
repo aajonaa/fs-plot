@@ -1,0 +1,2 @@
+Algorithm,TransferFunction,BestFitness_mean,BestFitness_std,Accuracy_mean,Accuracy_std,Error_mean,Error_std,Sensitivity_mean,Sensitivity_std,Specificity_mean,Specificity_std,Precision_mean,Precision_std,MCC_mean,MCC_std,F1_mean,F1_std,NumFeatures_mean,NumFeatures_std,Time_mean,Time_std
+bLRRIME-RF,v1,0.062284,0.067503,0.864762,0.092288,0.135238,0.092288,0.858929,0.095405,0.871429,0.157215,0.887500,0.130363,0.739770,0.182144,0.866538,0.085723,2.400000,0.699206,84.555610,3.938245

@@ -1,0 +1,2 @@
+Algorithm,TransferFunction,BestFitness_mean,BestFitness_std,Accuracy_mean,Accuracy_std,Error_mean,Error_std,Sensitivity_mean,Sensitivity_std,Specificity_mean,Specificity_std,Precision_mean,Precision_std,MCC_mean,MCC_std,F1_mean,F1_std,NumFeatures_mean,NumFeatures_std,Time_mean,Time_std
+XGBOOST,v1,0.000000,0.000000,0.723810,0.083390,0.276190,0.083390,0.735714,0.193026,0.709524,0.151336,0.739549,0.115007,0.468964,0.176273,0.721787,0.106180,99.000000,0.000000,0.000044,0.000019

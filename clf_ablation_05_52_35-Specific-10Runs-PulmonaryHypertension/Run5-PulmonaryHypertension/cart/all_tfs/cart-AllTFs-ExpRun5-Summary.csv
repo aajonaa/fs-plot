@@ -1,0 +1,2 @@
+Algorithm,TransferFunction,BestFitness_mean,BestFitness_std,Accuracy_mean,Accuracy_std,Error_mean,Error_std,Sensitivity_mean,Sensitivity_std,Specificity_mean,Specificity_std,Precision_mean,Precision_std,MCC_mean,MCC_std,F1_mean,F1_std,NumFeatures_mean,NumFeatures_std,Time_mean,Time_std
+bLRRIME-CART,v1,0.029365,0.034546,0.942857,0.056344,0.057143,0.056344,0.901786,0.117021,0.985714,0.045175,0.987500,0.039528,0.895481,0.101238,0.937949,0.064786,4.400000,1.505545,1.858215,0.189790
