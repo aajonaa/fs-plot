@@ -23,27 +23,28 @@ plt.rcParams['legend.fontsize'] = 10
 plt.rcParams['figure.titlesize'] = 18
 plt.rcParams['axes.linewidth'] = 1.5
 plt.rcParams['axes.grid'] = False
-plt.rcParams['axes.spines.top'] = False
-plt.rcParams['axes.spines.right'] = False
+plt.rcParams['axes.spines.top'] = True  # Show top spine for box
+plt.rcParams['axes.spines.right'] = True  # Show right spine for box
 
 # Professional color palette
 ALGORITHM_COLORS = {
-    'bLRRIME-KNN': '#FFFFFF',     # Steel Blue
-    'bLRRIME-SVM': '#e0e0e0',     # Royal Purple
-    'bLRRIME-RF': '#e6ebf5',      # Tangerine
-    'bLRRIME-CART': '#bdc2cc',    # Vermillion
-    'bLRRIME-XGBOOST': '#d3e8ff', # Forest Green
-    'bLRRIME-MLP': '#F0F5FF'      # Dusty Rose
+    'bLRRIME-KNN': '#ffffcd',     # Steel Blue
+    'bLRRIME-SVM': '#c2a685',     # Royal Purple
+    'bLRRIME-RF': '#ebcdab',      # Tangerine
+    'bLRRIME-CART': '#F5D7B5',    # Vermillion
+    'bLRRIME-MLP': '#c88252',      # Dusty Rose
+    'bLRRIME-XGBOOST': '#E89E6D' # Forest Green
 }      
 
 # Simplified algorithm names for display
 ALGORITHM_DISPLAY_NAMES = {
-    'bLRRIME-KNN': 'KNN',
-    'bLRRIME-SVM': 'SVM',
-    'bLRRIME-RF': 'RF',
-    'bLRRIME-CART': 'CART',
-    'bLRRIME-XGBOOST': 'XGBoost',
-    'bLRRIME-MLP': 'MLP'
+    'bLRRIME-KNN': 'bLRRIME-V1-KNN',
+    'bLRRIME-SVM': 'bLRRIME-V1-SVM',
+    'bLRRIME-RF': 'bLRRIME-V1-RF',
+    'bLRRIME-CART': 'bLRRIME-V1-CART',
+    'bLRRIME-MLP': 'bLRRIME-V1-MLP',
+    'bLRRIME-XGBOOST': 'bLRRIME-V1-XGBoost'
+
 }
 
 # Metrics to plot (in order)
@@ -210,7 +211,8 @@ def create_metrics_avg_std_plot(
     ax.set_xlabel('Performance Metrics', fontweight='bold', fontsize=14)
     ax.set_ylabel('Score', fontweight='bold', fontsize=14)
     ax.set_title(
-        f'{dataset_name} - Performance Comparison (Mean ± Std)',
+        # f'{dataset_name} - Performance Comparison (Mean ± Std)',
+        'Classifier Performance Comparison (Mean ± Std)',
         fontweight='bold',
         fontsize=16,
         pad=20
@@ -230,17 +232,40 @@ def create_metrics_avg_std_plot(
     ax.yaxis.grid(True, linestyle='--', alpha=0.3, linewidth=0.5)
     ax.set_axisbelow(True)
     
+    # Add secondary axes for complete box/symmetry
+    # Create secondary y-axis (right side)
+    ax2 = ax.twinx()
+    ax2.set_ylim(ax.get_ylim())  # Same scale as primary y-axis
+    ax2.set_ylabel('')  # No label on secondary y-axis
+    ax2.set_yticks([])  # No ticks on right axis
+    
+    # Create secondary x-axis (top)
+    ax3 = ax.twiny()
+    ax3.set_xlim(ax.get_xlim())  # Same scale as primary x-axis
+    ax3.set_xticks([])  # No ticks on top axis
+    
+    # Ensure all spines are visible for the box effect
+    for spine in ax.spines.values():
+        spine.set_visible(True)
+        spine.set_linewidth(1.5)
+    for spine in ax2.spines.values():
+        spine.set_visible(True)
+        spine.set_linewidth(1.5)
+    for spine in ax3.spines.values():
+        spine.set_visible(True)
+        spine.set_linewidth(1.5)
+    
     # Add legend
     legend = ax.legend(
-        loc='upper left',
-        bbox_to_anchor=(1.02, 1),
+        loc='lower center',
+        bbox_to_anchor=(0.5, -0.15),  # Position below the plot
         frameon=True,
         fancybox=False,
         shadow=False,
         borderpad=0.5,
         framealpha=1,
         edgecolor='black',
-        ncol=1
+        ncol=6  # Use 3 columns for horizontal layout
     )
     legend.get_frame().set_linewidth(1.5)
     
