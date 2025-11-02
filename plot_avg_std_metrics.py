@@ -26,25 +26,60 @@ plt.rcParams['axes.grid'] = False
 plt.rcParams['axes.spines.top'] = True  # Show top spine for box
 plt.rcParams['axes.spines.right'] = True  # Show right spine for box
 
-# Professional color palette
+# # CLF-Ablation Professional color palette
+# ALGORITHM_COLORS = {
+#     'bLRRIME-KNN': '#ffffcd',     # Steel Blue
+#     'bLRRIME-SVM': '#c2a685',     # Royal Purple
+#     'bLRRIME-RF': '#ebcdab',      # Tangerine
+#     'bLRRIME-CART': '#F5D7B5',    # Vermillion
+#     'bLRRIME-MLP': '#c88252',      # Dusty Rose
+#     'bLRRIME-XGBOOST': '#E89E6D' # Forest Green
+# }      
+
+# # Simplified algorithm names for display
+# ALGORITHM_DISPLAY_NAMES = {
+#     'bLRRIME-KNN': 'bLRRIME-V1-KNN',
+#     'bLRRIME-SVM': 'bLRRIME-V1-SVM',
+#     'bLRRIME-RF': 'bLRRIME-V1-RF',
+#     'bLRRIME-CART': 'bLRRIME-V1-CART',
+#     'bLRRIME-MLP': 'bLRRIME-V1-MLP',
+#     'bLRRIME-XGBOOST': 'bLRRIME-V1-XGBoost'
+# }
+
+# # FS-Ablation Professional color palette
+# ALGORITHM_COLORS = {
+#     'bLRRIME-XGBOOST': '#ebe2cd',   
+#     'XGBOOST': '#c2baa6',   
+# }      
+
+# # Simplified algorithm names for display
+# ALGORITHM_DISPLAY_NAMES = {
+#     'bLRRIME-XGBOOST': 'bLRRIME-V1-XGBoost',
+#     'XGBOOST': 'XGBOOST',
+# }
+
+# TF-Ablation CLF-Ablation Professional color palette
 ALGORITHM_COLORS = {
-    'bLRRIME-KNN': '#ffffcd',     # Steel Blue
-    'bLRRIME-SVM': '#c2a685',     # Royal Purple
-    'bLRRIME-RF': '#ebcdab',      # Tangerine
-    'bLRRIME-CART': '#F5D7B5',    # Vermillion
-    'bLRRIME-MLP': '#c88252',      # Dusty Rose
-    'bLRRIME-XGBOOST': '#E89E6D' # Forest Green
+     'bLRRIME-KNN-s1': '#0077B6',
+     'bLRRIME-KNN-s2': '#0096C7',   
+     'bLRRIME-KNN-s3': '#00B4D8',     
+     'bLRRIME-KNN-s4': '#48CAE4',    
+     'bLRRIME-KNN-v1': '#6CD5EA',     
+     'bLRRIME-KNN-v2': '#90E0EF',
+     'bLRRIME-KNN-v3': '#ADE8F4',      
+     'bLRRIME-KNN-v4': '#CAF0F8' 
 }      
 
 # Simplified algorithm names for display
 ALGORITHM_DISPLAY_NAMES = {
-    'bLRRIME-KNN': 'bLRRIME-V1-KNN',
-    'bLRRIME-SVM': 'bLRRIME-V1-SVM',
-    'bLRRIME-RF': 'bLRRIME-V1-RF',
-    'bLRRIME-CART': 'bLRRIME-V1-CART',
-    'bLRRIME-MLP': 'bLRRIME-V1-MLP',
-    'bLRRIME-XGBOOST': 'bLRRIME-V1-XGBoost'
-
+     'bLRRIME-KNN-s1': 'bLRRIME-S1-KNN',    
+     'bLRRIME-KNN-s2': 'bLRRIME-S2-KNN',     
+     'bLRRIME-KNN-s3': 'bLRRIME-S3-KNN',     
+     'bLRRIME-KNN-s4': 'bLRRIME-S4-KNN',   
+     'bLRRIME-KNN-v1': 'bLRRIME-V1-KNN',    
+     'bLRRIME-KNN-v2': 'bLRRIME-V2-KNN',
+     'bLRRIME-KNN-v3': 'bLRRIME-V3-KNN',  
+     'bLRRIME-KNN-v4': 'bLRRIME-V4-KNN'
 }
 
 # Metrics to plot (in order)
@@ -258,14 +293,15 @@ def create_metrics_avg_std_plot(
     # Add legend
     legend = ax.legend(
         loc='lower center',
-        bbox_to_anchor=(0.5, -0.15),  # Position below the plot
+        # bbox_to_anchor=(0.5, -0.15),  # Position below the plot (ncol=6 result for one line legend)
+        bbox_to_anchor=(0.5, -0.20),  # Position below the plot (ncol=4 result for two line legend)
         frameon=True,
         fancybox=False,
         shadow=False,
         borderpad=0.5,
         framealpha=1,
         edgecolor='black',
-        ncol=6  # Use 3 columns for horizontal layout
+        ncol=4  # Use 3 columns for horizontal layout
     )
     legend.get_frame().set_linewidth(1.5)
     
@@ -380,7 +416,7 @@ def main():
 if __name__ == '__main__':
     # For testing/demonstration, you can run directly with:
     # Example usage:
-    test_csv = r'D:\Github\fs-plot\clf_ablation_06_36_08-SINGLE_TF_MULTI_CLF-PulmonaryHypertension\detailed_data\all_fold_results.csv'
+    test_csv = r'D:\Github\fs-plot\tf_ablation_01_27_04-MULTI_TF_SINGLE_CLF-PulmonaryHypertension\detailed_data\all_fold_results.csv'
     
     if os.path.exists(test_csv):
         create_metrics_avg_std_plot(
