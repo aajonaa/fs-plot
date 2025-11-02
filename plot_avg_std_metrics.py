@@ -28,12 +28,12 @@ plt.rcParams['axes.spines.right'] = True  # Show right spine for box
 
 # # CLF-Ablation Professional color palette
 # ALGORITHM_COLORS = {
-#     'bLRRIME-KNN': '#ffffcd',     # Steel Blue
-#     'bLRRIME-SVM': '#c2a685',     # Royal Purple
-#     'bLRRIME-RF': '#ebcdab',      # Tangerine
-#     'bLRRIME-CART': '#F5D7B5',    # Vermillion
-#     'bLRRIME-MLP': '#c88252',      # Dusty Rose
-#     'bLRRIME-XGBOOST': '#E89E6D' # Forest Green
+#     'bLRRIME-KNN': '#E6CCB2',  
+#     'bLRRIME-SVM': '#E2C2A2',  
+#     'bLRRIME-RF': '#DDB892',     
+#     'bLRRIME-CART': '#D2AD88',  
+#     'bLRRIME-MLP': '#CDA783',      
+#     'bLRRIME-XGBOOST': '#C7A17D' 
 # }      
 
 # # Simplified algorithm names for display
@@ -46,41 +46,65 @@ plt.rcParams['axes.spines.right'] = True  # Show right spine for box
 #     'bLRRIME-XGBOOST': 'bLRRIME-V1-XGBoost'
 # }
 
-# # FS-Ablation Professional color palette
-# ALGORITHM_COLORS = {
-#     'bLRRIME-XGBOOST': '#ebe2cd',   
-#     'XGBOOST': '#c2baa6',   
-# }      
-
-# # Simplified algorithm names for display
-# ALGORITHM_DISPLAY_NAMES = {
-#     'bLRRIME-XGBOOST': 'bLRRIME-V1-XGBoost',
-#     'XGBOOST': 'XGBOOST',
-# }
-
-# TF-Ablation CLF-Ablation Professional color palette
+# FS-Ablation Professional color palette
 ALGORITHM_COLORS = {
-     'bLRRIME-KNN-s1': '#0077B6',
-     'bLRRIME-KNN-s2': '#0096C7',   
-     'bLRRIME-KNN-s3': '#00B4D8',     
-     'bLRRIME-KNN-s4': '#48CAE4',    
-     'bLRRIME-KNN-v1': '#6CD5EA',     
-     'bLRRIME-KNN-v2': '#90E0EF',
-     'bLRRIME-KNN-v3': '#ADE8F4',      
-     'bLRRIME-KNN-v4': '#CAF0F8' 
+    'bLRRIME-XGBOOST': '#ebe2cd',   
+    'XGBOOST': '#c2baa6',   
 }      
 
 # Simplified algorithm names for display
 ALGORITHM_DISPLAY_NAMES = {
-     'bLRRIME-KNN-s1': 'bLRRIME-S1-KNN',    
-     'bLRRIME-KNN-s2': 'bLRRIME-S2-KNN',     
-     'bLRRIME-KNN-s3': 'bLRRIME-S3-KNN',     
-     'bLRRIME-KNN-s4': 'bLRRIME-S4-KNN',   
-     'bLRRIME-KNN-v1': 'bLRRIME-V1-KNN',    
-     'bLRRIME-KNN-v2': 'bLRRIME-V2-KNN',
-     'bLRRIME-KNN-v3': 'bLRRIME-V3-KNN',  
-     'bLRRIME-KNN-v4': 'bLRRIME-V4-KNN'
+    'bLRRIME-XGBOOST': 'bLRRIME-V1-XGBoost',
+    'XGBOOST': 'XGBOOST',
 }
+
+# # TF-Ablation Professional color palette (Mansully modify Algorithm col needed)
+# ALGORITHM_COLORS = {
+#      'bLRRIME-KNN-s1': '#0077B6',
+#      'bLRRIME-KNN-s2': '#0096C7',   
+#      'bLRRIME-KNN-s3': '#00B4D8',     
+#      'bLRRIME-KNN-s4': '#48CAE4',    
+#      'bLRRIME-KNN-v1': '#6CD5EA',     
+#      'bLRRIME-KNN-v2': '#90E0EF',
+#      'bLRRIME-KNN-v3': '#ADE8F4',      
+#      'bLRRIME-KNN-v4': '#CAF0F8' 
+# }      
+
+# # Simplified algorithm names for display
+# ALGORITHM_DISPLAY_NAMES = {
+#      'bLRRIME-KNN-s1': 'bLRRIME-S1-KNN',    
+#      'bLRRIME-KNN-s2': 'bLRRIME-S2-KNN',     
+#      'bLRRIME-KNN-s3': 'bLRRIME-S3-KNN',     
+#      'bLRRIME-KNN-s4': 'bLRRIME-S4-KNN',   
+#      'bLRRIME-KNN-v1': 'bLRRIME-V1-KNN',    
+#      'bLRRIME-KNN-v2': 'bLRRIME-V2-KNN',
+#      'bLRRIME-KNN-v3': 'bLRRIME-V3-KNN',  
+#      'bLRRIME-KNN-v4': 'bLRRIME-V4-KNN'
+# }
+
+# # Comparison Professional color palette (Mansully modify Algorithm col needed)
+# ALGORITHM_COLORS = {
+#      'bLRRIME-XGBOOST': '#89B09A',
+#      'bRIME-XGBOOST': '#92B296',   
+#      'bHHO-XGBOOST': '#9AB391',     
+#      'bPSO-XGBOOST': '#A2B592',    
+#      'bGWO-XGBOOST': '#AAB693',     
+#      'bJADE-XGBOOST': '#B1BB9B',
+#      'bSADE-XGBOOST': '#BFC4AC',      
+#      'bSHADE-XGBOOST': '#CDCEBD' 
+# }      
+
+# # Simplified algorithm names for display
+# ALGORITHM_DISPLAY_NAMES = {
+#      'bLRRIME-XGBOOST': 'bLRRIME-V1-XGBOOST',
+#      'bRIME-XGBOOST': 'bRIME-V1-XGBOOST',   
+#      'bHHO-XGBOOST': 'bHHO-V1-XGBOOST',     
+#      'bPSO-XGBOOST': 'bPSO-V1-XGBOOST',    
+#      'bGWO-XGBOOST': 'bGWO-V1-XGBOOST',     
+#      'bJADE-XGBOOST': 'bJADE-V1-XGBOOST',
+#      'bSADE-XGBOOST': 'bSADE-V1-XGBOOST',      
+#      'bSHADE-XGBOOST': 'bSHADE-V1-XGBOOST' 
+# }
 
 # Metrics to plot (in order)
 DEFAULT_METRICS = ['Accuracy', 'Precision', 'Recall', 'F1', 'Specificity', 'MCC']
@@ -247,7 +271,7 @@ def create_metrics_avg_std_plot(
     ax.set_ylabel('Score', fontweight='bold', fontsize=14)
     ax.set_title(
         # f'{dataset_name} - Performance Comparison (Mean ± Std)',
-        'Classifier Performance Comparison (Mean ± Std)',
+        'Feature Selection Performance Comparison (Mean ± Std)',
         fontweight='bold',
         fontsize=16,
         pad=20
@@ -293,15 +317,15 @@ def create_metrics_avg_std_plot(
     # Add legend
     legend = ax.legend(
         loc='lower center',
-        # bbox_to_anchor=(0.5, -0.15),  # Position below the plot (ncol=6 result for one line legend)
-        bbox_to_anchor=(0.5, -0.20),  # Position below the plot (ncol=4 result for two line legend)
+        bbox_to_anchor=(0.5, -0.15),  # Position below the plot (ncol=6 result for one line legend)
+        # bbox_to_anchor=(0.5, -0.20),  # Position below the plot (ncol=4 result for two line legend)
         frameon=True,
         fancybox=False,
         shadow=False,
         borderpad=0.5,
         framealpha=1,
         edgecolor='black',
-        ncol=4  # Use 3 columns for horizontal layout
+        ncol=2  # Use 3 columns for horizontal layout
     )
     legend.get_frame().set_linewidth(1.5)
     
@@ -417,7 +441,10 @@ if __name__ == '__main__':
     # For testing/demonstration, you can run directly with:
     # Example usage:
     test_csv = r'D:\Github\fs-plot\tf_ablation_01_27_04-MULTI_TF_SINGLE_CLF-PulmonaryHypertension\detailed_data\all_fold_results.csv'
-    
+    test_csv = r'D:\Github\fs-plot\comparison_06_27_48-SINGLE_TF_SINGLE_CLF-PulmonaryHypertension\detailed_data\all_fold_results.csv'
+    test_csv = r'D:\Github\fs-plot\clf_ablation_06_36_08-SINGLE_TF_MULTI_CLF-PulmonaryHypertension\detailed_data\all_fold_results.csv'
+    test_csv = r'D:\Github\fs-plot\fs_ablation_16_08_10-SINGLE_TF_SINGLE_CLF-PulmonaryHypertension\detailed_data\all_fold_results.csv'
+   
     if os.path.exists(test_csv):
         create_metrics_avg_std_plot(
             csv_path=test_csv,
