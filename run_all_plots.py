@@ -189,7 +189,7 @@ if __name__ == "__main__":
     
     # For testing with the available data:
     if len(sys.argv) == 1:  # No arguments provided, use test data
-        test_csv = r'D:\Github\LRRIME-25-10-31\Exp 1024\FS 1031\clf_ablation_06_36_08-SINGLE_TF_MULTI_CLF-PulmonaryHypertension\detailed_data\all_fold_results.csv'
+        test_csv = r'D:\Github\fs-plot\clf_ablation_06_36_08-SINGLE_TF_MULTI_CLF-PulmonaryHypertension\detailed_data\all_fold_results.csv'
         if os.path.exists(test_csv):
             print("Running with test data...")
             generate_all_plots(test_csv, None, 'PulmonaryHypertension')

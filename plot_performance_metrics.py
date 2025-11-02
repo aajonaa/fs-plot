@@ -134,8 +134,20 @@ def create_performance_comparison_subplots(
     # Calculate statistics
     algo_metrics = calculate_algorithm_metrics(df)
     
-    # Sort algorithms for consistent ordering
-    algorithms = sorted(df['Algorithm'].unique())
+    # Use the order from ALGORITHM_DISPLAY_NAMES if defined, otherwise use what's in the data
+    # This ensures bars follow the predefined display sequence
+    data_algorithms = df['Algorithm'].unique()
+    ordered_algorithms = []
+    for algo_key in ALGORITHM_DISPLAY_NAMES.keys():
+        if algo_key in data_algorithms:
+            ordered_algorithms.append(algo_key)
+    
+    # Add any algorithms not in ALGORITHM_DISPLAY_NAMES (for flexibility)
+    for algo_key in data_algorithms:
+        if algo_key not in ordered_algorithms:
+            ordered_algorithms.append(algo_key)
+    
+    algorithms = ordered_algorithms
     
     # Create figure with subplots
     n_rows, n_cols = layout
@@ -373,7 +385,19 @@ def create_boxplot_comparison(
         labels = []
         colors = []
         
-        for algorithm in sorted(df['Algorithm'].unique()):
+        # Use the predefined order from ALGORITHM_DISPLAY_NAMES
+        data_algorithms = df['Algorithm'].unique()
+        ordered_algorithms = []
+        for algo_key in ALGORITHM_DISPLAY_NAMES.keys():
+            if algo_key in data_algorithms:
+                ordered_algorithms.append(algo_key)
+        
+        # Add any algorithms not in ALGORITHM_DISPLAY_NAMES
+        for algo_key in data_algorithms:
+            if algo_key not in ordered_algorithms:
+                ordered_algorithms.append(algo_key)
+        
+        for algorithm in ordered_algorithms:
             algo_data = df[df['Algorithm'] == algorithm][metric].values
             data_for_plot.append(algo_data)
             labels.append(ALGORITHM_DISPLAY_NAMES.get(algorithm, algorithm))
@@ -483,7 +507,7 @@ def main():
 
 if __name__ == '__main__':
     # For testing/demonstration
-    test_csv = r'D:\Github\LRRIME-25-10-31\Exp 1024\FS 1031\clf_ablation_06_36_08-SINGLE_TF_MULTI_CLF-PulmonaryHypertension\detailed_data\all_fold_results.csv'
+    test_csv = r'D:\Github\fs-plot\clf_ablation_06_36_08-SINGLE_TF_MULTI_CLF-PulmonaryHypertension\detailed_data\all_fold_results.csv'
     
     if os.path.exists(test_csv):
         # Create all three types of plots

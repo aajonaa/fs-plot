@@ -28,13 +28,13 @@ plt.rcParams['axes.spines.right'] = False
 
 # Professional color palette
 ALGORITHM_COLORS = {
-    'bLRRIME-KNN': '#2E86AB',     # Steel Blue
-    'bLRRIME-SVM': '#A23B72',     # Royal Purple
-    'bLRRIME-RF': '#F18F01',      # Tangerine
-    'bLRRIME-CART': '#C73E1D',    # Vermillion
-    'bLRRIME-XGBOOST': '#6A994E', # Forest Green
-    'bLRRIME-MLP': '#BC4B51'      # Dusty Rose
-}
+    'bLRRIME-KNN': '#FFFFFF',     # Steel Blue
+    'bLRRIME-SVM': '#e0e0e0',     # Royal Purple
+    'bLRRIME-RF': '#e6ebf5',      # Tangerine
+    'bLRRIME-CART': '#bdc2cc',    # Vermillion
+    'bLRRIME-XGBOOST': '#d3e8ff', # Forest Green
+    'bLRRIME-MLP': '#F0F5FF'      # Dusty Rose
+}      
 
 # Simplified algorithm names for display
 ALGORITHM_DISPLAY_NAMES = {
@@ -143,8 +143,19 @@ def create_metrics_avg_std_plot(
     # Calculate statistics
     stats_data = calculate_statistics(df, available_metrics)
     
-    # Sort algorithms for consistent ordering
-    sorted_algorithms = sorted(stats_data.keys())
+    # Use the order from ALGORITHM_DISPLAY_NAMES if defined, otherwise use what's in the data
+    # This ensures bars follow the predefined display sequence
+    ordered_algorithms = []
+    for algo_key in ALGORITHM_DISPLAY_NAMES.keys():
+        if algo_key in stats_data:
+            ordered_algorithms.append(algo_key)
+    
+    # Add any algorithms not in ALGORITHM_DISPLAY_NAMES (for flexibility)
+    for algo_key in stats_data.keys():
+        if algo_key not in ordered_algorithms:
+            ordered_algorithms.append(algo_key)
+    
+    sorted_algorithms = ordered_algorithms
     
     # Create figure and axis
     fig, ax = plt.subplots(figsize=figsize, facecolor='white')
@@ -234,7 +245,7 @@ def create_metrics_avg_std_plot(
     legend.get_frame().set_linewidth(1.5)
     
     # Add subtle background
-    ax.set_facecolor('#F8F8F8')
+    ax.set_facecolor('white')
     
     # Tight layout
     plt.tight_layout()
@@ -344,7 +355,7 @@ def main():
 if __name__ == '__main__':
     # For testing/demonstration, you can run directly with:
     # Example usage:
-    test_csv = r'D:\Github\LRRIME-25-10-31\Exp 1024\FS 1031\clf_ablation_06_36_08-SINGLE_TF_MULTI_CLF-PulmonaryHypertension\detailed_data\all_fold_results.csv'
+    test_csv = r'D:\Github\fs-plot\clf_ablation_06_36_08-SINGLE_TF_MULTI_CLF-PulmonaryHypertension\detailed_data\all_fold_results.csv'
     
     if os.path.exists(test_csv):
         create_metrics_avg_std_plot(
