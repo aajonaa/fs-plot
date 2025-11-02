@@ -25,24 +25,84 @@ plt.rcParams['figure.titlesize'] = 16
 plt.rcParams['axes.linewidth'] = 1.2
 plt.rcParams['axes.grid'] = False
 
-# Professional color palette (consistent with first script)
+# # CLF-Ablation Professional color palette
+# ALGORITHM_COLORS = {
+#     'bLRRIME-KNN': '#E6CCB2',  
+#     'bLRRIME-SVM': '#E2C2A2',  
+#     'bLRRIME-RF': '#DDB892',     
+#     'bLRRIME-CART': '#D2AD88',  
+#     'bLRRIME-MLP': '#CDA783',      
+#     'bLRRIME-XGBOOST': '#C7A17D' 
+# }      
+
+# # Simplified algorithm names for display
+# ALGORITHM_DISPLAY_NAMES = {
+#     'bLRRIME-KNN': 'bLRRIME-V1-KNN',
+#     'bLRRIME-SVM': 'bLRRIME-V1-SVM',
+#     'bLRRIME-RF': 'bLRRIME-V1-RF',
+#     'bLRRIME-CART': 'bLRRIME-V1-CART',
+#     'bLRRIME-MLP': 'bLRRIME-V1-MLP',
+#     'bLRRIME-XGBOOST': 'bLRRIME-V1-XGBoost'
+# }
+
+# # FS-Ablation Professional color palette
+# ALGORITHM_COLORS = {
+#     'bLRRIME-XGBOOST': '#ebe2cd',   
+#     'XGBOOST': '#c2baa6',   
+# }      
+
+# # Simplified algorithm names for display
+# ALGORITHM_DISPLAY_NAMES = {
+#     'bLRRIME-XGBOOST': 'bLRRIME-V1-XGBoost',
+#     'XGBOOST': 'XGBOOST',
+# }
+
+# # TF-Ablation Professional color palette (Mansully modify Algorithm col needed)
+# ALGORITHM_COLORS = {
+#      'bLRRIME-KNN-s1': '#0077B6',
+#      'bLRRIME-KNN-s2': '#0096C7',   
+#      'bLRRIME-KNN-s3': '#00B4D8',     
+#      'bLRRIME-KNN-s4': '#48CAE4',    
+#      'bLRRIME-KNN-v1': '#6CD5EA',     
+#      'bLRRIME-KNN-v2': '#90E0EF',
+#      'bLRRIME-KNN-v3': '#ADE8F4',      
+#      'bLRRIME-KNN-v4': '#CAF0F8' 
+# }      
+
+# # Simplified algorithm names for display
+# ALGORITHM_DISPLAY_NAMES = {
+#      'bLRRIME-KNN-s1': 'bLRRIME-S1-KNN',    
+#      'bLRRIME-KNN-s2': 'bLRRIME-S2-KNN',     
+#      'bLRRIME-KNN-s3': 'bLRRIME-S3-KNN',     
+#      'bLRRIME-KNN-s4': 'bLRRIME-S4-KNN',   
+#      'bLRRIME-KNN-v1': 'bLRRIME-V1-KNN',    
+#      'bLRRIME-KNN-v2': 'bLRRIME-V2-KNN',
+#      'bLRRIME-KNN-v3': 'bLRRIME-V3-KNN',  
+#      'bLRRIME-KNN-v4': 'bLRRIME-V4-KNN'
+# }
+
+# Comparison Professional color palette (Mansully modify Algorithm col needed)
 ALGORITHM_COLORS = {
-    'bLRRIME-KNN': '#2E86AB',     # Steel Blue
-    'bLRRIME-SVM': '#A23B72',     # Royal Purple
-    'bLRRIME-RF': '#F18F01',      # Tangerine
-    'bLRRIME-CART': '#C73E1D',    # Vermillion
-    'bLRRIME-XGBOOST': '#6A994E', # Forest Green
-    'bLRRIME-MLP': '#BC4B51'      # Dusty Rose
-}
+     'bLRRIME-XGBOOST': '#89B09A',
+     'bRIME-XGBOOST': '#92B296',   
+     'bHHO-XGBOOST': '#9AB391',     
+     'bPSO-XGBOOST': '#A2B592',    
+     'bGWO-XGBOOST': '#AAB693',     
+     'bJADE-XGBOOST': '#B1BB9B',
+     'bSADE-XGBOOST': '#BFC4AC',      
+     'bSHADE-XGBOOST': '#CDCEBD' 
+}      
 
 # Simplified algorithm names for display
 ALGORITHM_DISPLAY_NAMES = {
-    'bLRRIME-KNN': 'KNN',
-    'bLRRIME-SVM': 'SVM',
-    'bLRRIME-RF': 'RF',
-    'bLRRIME-CART': 'CART',
-    'bLRRIME-XGBOOST': 'XGBoost',
-    'bLRRIME-MLP': 'MLP'
+     'bLRRIME-XGBOOST': 'bLRRIME-V1-XGBOOST',
+     'bRIME-XGBOOST': 'bRIME-V1-XGBOOST',   
+     'bHHO-XGBOOST': 'bHHO-V1-XGBOOST',     
+     'bPSO-XGBOOST': 'bPSO-V1-XGBOOST',    
+     'bGWO-XGBOOST': 'bGWO-V1-XGBOOST',     
+     'bJADE-XGBOOST': 'bJADE-V1-XGBOOST',
+     'bSADE-XGBOOST': 'bSADE-V1-XGBOOST',      
+     'bSHADE-XGBOOST': 'bSHADE-V1-XGBOOST' 
 }
 
 # Metrics to plot (in order)
@@ -265,7 +325,9 @@ def create_performance_heatmap(
     dataset_name: str = 'Dataset',
     metrics: List[str] = None,
     figsize: Tuple[float, float] = (12, 8),
-    dpi: int = 300
+    dpi: int = 300,
+    enhance_gradient: bool = True,
+    gradient_percentiles: Tuple[float, float] = (5, 95)
 ) -> None:
     """
     Create a heatmap showing all metrics for all algorithms.
@@ -277,6 +339,8 @@ def create_performance_heatmap(
         metrics: List of metrics to include
         figsize: Figure size
         dpi: Resolution
+        enhance_gradient: Whether to enhance color gradient for small differences
+        gradient_percentiles: Percentiles to use for gradient range (min, max)
     """
     # Load data
     df = load_and_process_data(csv_path)
@@ -291,17 +355,52 @@ def create_performance_heatmap(
     # Calculate mean metrics
     algo_metrics = df.groupby('Algorithm')[available_metrics].mean()
     
+    # Use the order from ALGORITHM_DISPLAY_NAMES if defined, otherwise use what's in the data
+    # This ensures the heatmap follows the predefined display sequence
+    ordered_algorithms = []
+    for algo_key in ALGORITHM_DISPLAY_NAMES.keys():
+        if algo_key in algo_metrics.index:
+            ordered_algorithms.append(algo_key)
+    
+    # Add any algorithms not in ALGORITHM_DISPLAY_NAMES (for flexibility)
+    for algo_key in algo_metrics.index:
+        if algo_key not in ordered_algorithms:
+            ordered_algorithms.append(algo_key)
+    
+    # Reorder the dataframe according to our desired sequence
+    algo_metrics = algo_metrics.loc[ordered_algorithms]
+    
     # Rename algorithms for display
     algo_metrics.index = [ALGORITHM_DISPLAY_NAMES.get(algo, algo) for algo in algo_metrics.index]
     
     # Create heatmap
     fig, ax = plt.subplots(figsize=figsize, facecolor='white')
     
-    # Normalize data for better color mapping (optional)
+    # Prepare data for better color mapping
     data_matrix = algo_metrics.values.T
     
-    # Create heatmap
-    im = ax.imshow(data_matrix, cmap='RdYlGn', aspect='auto', vmin=0, vmax=1)
+    # Calculate color range based on enhancement settings
+    if enhance_gradient:
+        # Use percentiles to focus on the actual data range and enhance small differences
+        data_min = np.percentile(data_matrix, gradient_percentiles[0])
+        data_max = np.percentile(data_matrix, gradient_percentiles[1])
+        
+        # Add some padding to ensure we don't cut off extreme values
+        range_padding = (data_max - data_min) * 0.1
+        vmin = max(0, data_min - range_padding)
+        vmax = min(1, data_max + range_padding)
+        
+        # If the range is too small (all values very similar), force a minimum range
+        if (vmax - vmin) < 0.1:
+            center = (data_matrix.min() + data_matrix.max()) / 2
+            vmin = max(0, center - 0.05)
+            vmax = min(1, center + 0.05)
+    else:
+        # Use full 0-1 range without enhancement
+        vmin, vmax = 0, 1
+    
+    # Create heatmap with enhanced gradient
+    im = ax.imshow(data_matrix, cmap='RdYlGn', aspect='auto', vmin=vmin, vmax=vmax)
     
     # Set ticks
     ax.set_xticks(np.arange(len(algo_metrics.index)))
@@ -312,9 +411,12 @@ def create_performance_heatmap(
     # Rotate the tick labels
     plt.setp(ax.get_xticklabels(), rotation=45, ha="right", rotation_mode="anchor")
     
-    # Add colorbar
+    # Add colorbar with range information
     cbar = plt.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
-    cbar.set_label('Performance Score', rotation=270, labelpad=20, fontsize=12)
+    # cbar.set_label(f'Performance Score\n(Range: {vmin:.3f} - {vmax:.3f})', 
+    #                rotation=270, labelpad=25, fontsize=12)
+    cbar.set_label('Performance Score', 
+                   rotation=270, labelpad=25, fontsize=12)                   
     
     # Add text annotations
     for i in range(len(available_metrics)):
@@ -323,9 +425,11 @@ def create_performance_heatmap(
                           ha="center", va="center", color="black", fontsize=10)
     
     # Set title and labels
-    ax.set_title(f'{dataset_name} - Performance Metrics Heatmap',
-                fontweight='bold', fontsize=14, pad=20)
-    
+    # ax.set_title(f'{dataset_name} - Performance Metrics Heatmap',
+    #             fontweight='bold', fontsize=14, pad=20)
+    ax.set_title('Algorithm Performance Metrics Heatmap',
+                fontweight='bold', fontsize=14, pad=20)    
+
     # Tight layout
     plt.tight_layout()
     
@@ -508,6 +612,7 @@ def main():
 if __name__ == '__main__':
     # For testing/demonstration
     test_csv = r'D:\Github\fs-plot\clf_ablation_06_36_08-SINGLE_TF_MULTI_CLF-PulmonaryHypertension\detailed_data\all_fold_results.csv'
+    test_csv = r'D:\Github\fs-plot\comparison_23_17_42-SINGLE_TF_SINGLE_CLF-PulmonaryHypertension\detailed_data\all_fold_results.csv'
     
     if os.path.exists(test_csv):
         # Create all three types of plots
