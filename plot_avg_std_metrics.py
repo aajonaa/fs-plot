@@ -46,17 +46,17 @@ plt.rcParams['axes.spines.right'] = True  # Show right spine for box
 #     'bLRRIME-XGBOOST': 'bLRRIME-V1-XGBoost'
 # }
 
-# FS-Ablation Professional color palette
-ALGORITHM_COLORS = {
-    'bLRRIME-XGBOOST': '#ebe2cd',   
-    'XGBOOST': '#c2baa6',   
-}      
+# # FS-Ablation Professional color palette
+# ALGORITHM_COLORS = {
+#     'bLRRIME-XGBOOST': '#ebe2cd',   
+#     'XGBOOST': '#c2baa6',   
+# }      
 
-# Simplified algorithm names for display
-ALGORITHM_DISPLAY_NAMES = {
-    'bLRRIME-XGBOOST': 'bLRRIME-V1-XGBoost',
-    'XGBOOST': 'XGBOOST',
-}
+# # Simplified algorithm names for display
+# ALGORITHM_DISPLAY_NAMES = {
+#     'bLRRIME-XGBOOST': 'bLRRIME-V1-XGBoost',
+#     'XGBOOST': 'XGBOOST',
+# }
 
 # # TF-Ablation Professional color palette (Mansully modify Algorithm col needed)
 # ALGORITHM_COLORS = {
@@ -106,8 +106,26 @@ ALGORITHM_DISPLAY_NAMES = {
 #      'bSHADE-XGBOOST': 'bSHADE-V1-XGBOOST' 
 # }
 
+# ALPHA parameter analysis Professional color palette
+ALGORITHM_COLORS = {
+    'bPSO-V1-RF-0_85': '#ACF9DE',  
+    'bPSO-V1-RF-0_90': '#8FF3D0',  
+    'bPSO-V1-RF-0_95': '#71E2BA',     
+    'bPSO-V1-RF-0_99': '#50C89E'
+}      
+
+# Simplified algorithm names for display
+ALGORITHM_DISPLAY_NAMES = {
+    'bPSO-V1-RF-0_85': 'alpha=0.85',
+    'bPSO-V1-RF-0_90': 'alpha=0.90',
+    'bPSO-V1-RF-0_95': 'alpha=0.95',
+    'bPSO-V1-RF-0_99': 'alpha=0.99'
+}
+
 # Metrics to plot (in order)
-DEFAULT_METRICS = ['Accuracy', 'Precision', 'Recall', 'F1', 'Specificity', 'MCC']
+# DEFAULT_METRICS = ['Accuracy', 'Precision', 'Recall', 'F1', 'Specificity', 'MCC']
+# Below metrics are used for parameter analysis which have change the name of the Recall to Sensitiviy in file all_fold_results.csv
+DEFAULT_METRICS = ['Accuracy', 'Sensitiviy', 'Specificity', 'Precision', 'MCC', 'F-measure']
 
 def load_and_process_data(csv_path: str) -> pd.DataFrame:
     """
@@ -271,7 +289,8 @@ def create_metrics_avg_std_plot(
     ax.set_ylabel('Score', fontweight='bold', fontsize=14)
     ax.set_title(
         # f'{dataset_name} - Performance Comparison (Mean ± Std)',
-        'Feature Selection Performance Comparison (Mean ± Std)',
+        # 'Feature Selection Performance Comparison (Mean ± Std)',
+        'Parameter Analysis (Avg ± Std)',
         fontweight='bold',
         fontsize=16,
         pad=20
@@ -285,7 +304,8 @@ def create_metrics_avg_std_plot(
     if y_limit:
         ax.set_ylim(y_limit)
     else:
-        ax.set_ylim(0, 1.05)  # Default for normalized metrics
+        # ax.set_ylim(0, 1.05)  # Default for normalized metrics
+        ax.set_ylim(0, 1)  # Default for normalized metrics
     
     # Add grid for better readability
     ax.yaxis.grid(True, linestyle='--', alpha=0.3, linewidth=0.5)
@@ -325,7 +345,7 @@ def create_metrics_avg_std_plot(
         borderpad=0.5,
         framealpha=1,
         edgecolor='black',
-        ncol=2  # Use 3 columns for horizontal layout
+        ncol=8  # Use 3 columns for horizontal layout
     )
     legend.get_frame().set_linewidth(1.5)
     
@@ -444,11 +464,13 @@ if __name__ == '__main__':
     test_csv = r'D:\Github\fs-plot\comparison_06_27_48-SINGLE_TF_SINGLE_CLF-PulmonaryHypertension\detailed_data\all_fold_results.csv'
     test_csv = r'D:\Github\fs-plot\clf_ablation_06_36_08-SINGLE_TF_MULTI_CLF-PulmonaryHypertension\detailed_data\all_fold_results.csv'
     test_csv = r'D:\Github\fs-plot\fs_ablation_16_08_10-SINGLE_TF_SINGLE_CLF-PulmonaryHypertension\detailed_data\all_fold_results.csv'
-   
+    test_csv = r'D:\Github\fs_plot\03_19_49-SINGLE_TF_SINGLE_CLF-australian\detailed_data\all_fold_results.csv'
+
     if os.path.exists(test_csv):
         create_metrics_avg_std_plot(
             csv_path=test_csv,
-            dataset_name='PulmonaryHypertension',
+            # dataset_name='PulmonaryHypertension',
+            dataset_name='australian',
             show_values=False  # Set to False for cleaner academic look
         )
     else:
